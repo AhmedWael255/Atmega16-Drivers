@@ -8,14 +8,19 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include TMR0/subdir.mk
--include LM35_Temp_Sensor/subdir.mk
--include LCD/subdir.mk
--include Keypad/subdir.mk
--include I2C/subdir.mk
--include GPIO/subdir.mk
--include DC\ Motor/subdir.mk
--include ADC/subdir.mk
+-include 03-HAL/07-Ultrasonic/subdir.mk
+-include 03-HAL/06-LM35_Temp_Sensor/subdir.mk
+-include 03-HAL/05-LCD/subdir.mk
+-include 03-HAL/04-Keypad/subdir.mk
+-include 03-HAL/03-EEPROM_External/subdir.mk
+-include 03-HAL/02-DC\ Motor/subdir.mk
+-include 03-HAL/01-ADC/subdir.mk
+-include 02-MCAL/06-ICU/subdir.mk
+-include 02-MCAL/05-UART/subdir.mk
+-include 02-MCAL/04-TMR0/subdir.mk
+-include 02-MCAL/03-I2C/subdir.mk
+-include 02-MCAL/02-SPI/subdir.mk
+-include 02-MCAL/01-GPIO/subdir.mk
 -include subdir.mk
 -include objects.mk
 

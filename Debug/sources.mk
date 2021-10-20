@@ -19,12 +19,17 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-ADC \
-DC\ Motor \
-GPIO \
-I2C \
-Keypad \
-LCD \
-LM35_Temp_Sensor \
-TMR0 \
+02-MCAL/01-GPIO \
+02-MCAL/02-SPI \
+02-MCAL/03-I2C \
+02-MCAL/04-TMR0 \
+02-MCAL/05-UART \
+02-MCAL/06-ICU \
+03-HAL/01-ADC \
+03-HAL/02-DC\ Motor \
+03-HAL/03-EEPROM_External \
+03-HAL/04-Keypad \
+03-HAL/05-LCD \
+03-HAL/06-LM35_Temp_Sensor \
+03-HAL/07-Ultrasonic \
 
