@@ -170,25 +170,25 @@ u8 GPIO_readPin(GPIO_PORT port, u8 pin)
 	return pin_value;
 }
 
-void GPIO_setPortDirection(GPIO_PORT port, GPIO_directionType direction)
+void GPIO_setPortDirection(GPIO_PORT port, GPIO_PortdirectionType direction)
 {
-	/*Check that number of ports doesnt exceed NUM_OF_PORTS*/
+	/*Check that number of ports doesn't exceed NUM_OF_PORTS*/
 	if(port < NUM_OF_PORTS)
 	{
 		/* Setup the port direction as required */
 		switch(port)
 		{
 		case A:
-			DDRA = 0xFF;
+			DDRA = direction;
 			break;
 		case B:
-			DDRB = 0xFF;
+			DDRB = direction;
 			break;
 		case C:
-			DDRC = 0xFF;
+			DDRC = direction;
 			break;
 		case D:
-			DDRD = 0xFF;
+			DDRD = direction;
 			break;
 		}
 	}

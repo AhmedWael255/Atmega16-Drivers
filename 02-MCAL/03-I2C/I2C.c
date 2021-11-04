@@ -13,7 +13,7 @@
 
 void TWI_init(void)
 {
-    /* Bit Rate: 400.000 kbps using zero pre-scaler TWPS=00 and F_CPU=8Mhz */
+    /* Bit Rate: 400.000 KBPS using zero pre-scaler TWPS=00 and F_CPU=8Mhz */
     TWBR = TWI_CLOCK;
 	TWSR = 0x00;
 

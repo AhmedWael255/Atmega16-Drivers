@@ -7,7 +7,7 @@
 #ifndef ULTRASONIC_H_
 #define ULTRASONIC_H_
 
-#include "../01-LIB/STD_Types.h"
+#include "../Common/STD_Types.h"
 
 #define Trigger_Port	B
 #define Trigger_Pin		5

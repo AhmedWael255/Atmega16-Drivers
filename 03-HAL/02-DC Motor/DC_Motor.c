@@ -4,9 +4,8 @@
 /* Version  :   V01              */
 /*********************************/
 
-#include "../02-DC Motor/DC_Motor.h"
-
-#include "../../02-MCAL/04-TMR0/TMR0.h"
+#include "DC_Motor.h"
+#include "../TMR0/TMR0.h"
 
 /*Stepper motor option if its full wave or half wave*/
 #if Stepper_Motor == FULL_WAVE_STEPS

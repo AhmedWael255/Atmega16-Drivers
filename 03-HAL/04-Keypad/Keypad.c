@@ -4,7 +4,7 @@
 /* Version  :   V01              */
 /*********************************/
 
-#include "keypad.h"
+#include "Keypad.h"
 
 /*if required keypad is 4x4 then define Keypad_4x4Config function*/
 #if KEYPAD_Columns == 4

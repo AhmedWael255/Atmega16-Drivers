@@ -7,7 +7,7 @@
 #ifndef DC_MOTOR_H_
 #define	DC_MOTOR_H_
 
-#include "../../02-MCAL/01-GPIO/GPIO.h"
+#include "../GPIO/GPIO.h"
 
 #define FULL_WAVE_STEPS 4
 #define HALF_WAVE_STEPS 8

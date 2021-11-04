@@ -6,26 +6,90 @@
 
 #include "EEPROM.h"
 #include "../../02-MCAL/03-I2C/I2C.h"
-/*
-void EEPROM_Init(void)
-{
-	TWI_init();
-	if(TWI_getStatus() != TWI_start())
-	{
 
+u8 EEPROM_writeData(u16 Copy_u16Address, u8 Copy_u8Data)
+{
+	/*Start bit of the I2C and Check if TWI status is Ready
+	 * Slave Sends ACK*/
+	TWI_Start();
+	if(TWI_getStatus() != TWI_START)
+	{
+		return Error;
 	}
-	TWI_writeByte();
+
+	/*Write the Slave Address and Check if TWI status is Ready
+	 *Slave Sends ACK*/
+	TWI_writeByte((u8)(0xA0 | ((Copy_u16Address & 0x0700)>>7)));
+	if(TWI_getStatus() != TWI_MT_SWrite_ACK)
+	{
+		return Error;
+	}
+
+	/*Write the Memory Address and Check if TWI status is Ready
+	 *Slave Sends ACK*/
+	TWI_writeByte(Copy_u16Address);
+	if(TWI_getStatus() != TWI_MT_DATA_ACK)
+	{
+		return Error;
+	}
+
+	/*Write the Data to the Memory and Check if TWI status is Ready
+	 *Slave Sends ACK*/
+	TWI_writeByte(Copy_u8Data);
+	if(TWI_getStatus() != TWI_MT_DATA_ACK)
+	{
+		return Error;
+	}
+
+	/*TWI Stop Bit*/
+	TWI_stop();
+	return NoError;
 }
 
-void EEPROM_writeData(u16 address)
+u8 EEPROM_ReadData(u16 Copy_u16Address, u8* Copy_u8Data)
 {
-	TWI_writeByte(((address & 0x700) >> 7) | 0xA0);
-
-	if(TWI_getStatus() != TWI_writeByte())
+	/*Start bit of the I2C and Check if TWI status is Ready
+	 * Slave Sends ACK*/
+	TWI_Start();
+	if(TWI_getStatus() != TWI_START)
 	{
-
+		return Error;
 	}
+
+	/*Write the Slave Address and Check if TWI status is Ready
+	 *Slave Sends ACK*/
+	TWI_writeByte((u8)(0xA0 | ((Copy_u16Address & 0x0700)>>7)));
+	if(TWI_getStatus() != TWI_MT_SWrite_ACK)
+	{
+		return Error;
+	}
+
+	/*Write the Memory Address and Check if TWI status is Ready
+	 *Slave Sends ACK*/
+	TWI_writeByte(Copy_u16Address);
+	if(TWI_getStatus() != TWI_MT_DATA_ACK)
+	{
+		return Error;
+	}
+
+	/*Restart bit of the I2C and Check if TWI status is Ready
+	 * Slave Sends ACK
+	 * Now make master Reads data*/
+	TWI_Start();
+	if(TWI_getStatus() != TWI_START)
+	{
+		return Error;
+	}
+
+	/*Read Data From Memory and Check if TWI status is Ready*/
+	Copy_u8Data = TWI_readByteWithNACK();
+	if(TWI_getStatus() != TWI_MR_DATA_NACK)
+	{
+		return Error;
+	}
+
+	/*TWI Stop Bit*/
+	TWI_stop();
+	return NoError;
 }
 
-void EEPROM_ReadData(void);
-*/

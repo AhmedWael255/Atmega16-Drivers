@@ -7,8 +7,8 @@
 #ifndef LCD_H_
 #define LCD_H_
 
-#include "../01-LIB/STD_Types.h"
-#include "../02-MCAL/GPIO/GPIO_private.h"
+#include "../Common/STD_Types.h"
+#include "../GPIO/GPIO_private.h"
 
 /*Modes of data only 4 or 8*/
 #define Data_Bit_Mode	8
